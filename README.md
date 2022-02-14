@@ -7,19 +7,19 @@ Amplify、React、Stripeで商品購入・定期課金契約機能を実装し�
 # 実装内容
 
 - ## Amplify CLIでREST APIを選択して、AWS Lambda関数を作成(Node.js,テンプレートExpress)。
-- Stripe Payment Linksを使ってノーコードで決済URLを作成。
-- ダッシュボードからStripeのAPIキー(公開可能キー、制限付きキー)を作成。
-  - 公開可能キー
+- ## Stripe Payment Linksを使ってノーコードで決済URLを作成。
+- ## ダッシュボードからStripeのAPIキー(公開可能キー、制限付きキー)を作成。
+  - ###公開可能キー
     カード情報の安全なトークン化、Stripe Checkoutへのリダイレクト操作
-  - 制限付きキー
+  - ###制限付きキー
     Stripeアカウントにアクセス（顧客情報、決済情報）
 
-- Stripe JavaScript SDKをReactアプリに設定。（公開可能キーでJavaScript SDKを初期化）
-  - src/BuyButton.jsxにStripeの公開可能キーを取得するコードを記述。
-- Stripe Node.js SDKをAmplifyのサーバー側アプリに設定
-  - `amplify update function`で制限付きキーを暗号化してAWSに保存。
-  - amplify/backend/function/Lambda関数名/src/app.jsでStripeの制限付きキーを取得するコードを記述。
-  - 取得したAPIキー(制限付きキー)を元ににStripe Node.js SDKを読み込みセットアップ。
+- ## Stripe JavaScript SDKをReactアプリに設定。（公開可能キーでJavaScript SDKを初期化）
+  - ###src/BuyButton.jsxにStripeの公開可能キーを取得するコードを記述。
+- ## Stripe Node.js SDKをAmplifyのサーバー側アプリに設定
+  - ### `amplify update function`で制限付きキーを暗号化してAWSに保存。
+  - ### amplify/backend/function/Lambda関数名/src/app.jsでStripeの制限付きキーを取得するコードを記述。
+  - ### 取得したAPIキー(制限付きキー)を元ににStripe Node.js SDKを読み込みセットアップ。
 
 -  
 
