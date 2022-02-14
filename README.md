@@ -4,8 +4,12 @@
 
 Amplify、React、Stripeで商品購入・定期課金契約機能を実装しました。
 
-インフラはAWSを使用しています。
-VPC、セキュリティグループ、RDS、ECS(fargate)などのAWSリソースをCDKで構築しました。
+- Amplify CLIでREST APIを選択して、AWS Lambda関数を作成(Node.js,テンプレートExpress)。
+- Stripe Payment Linksを使ってノーコードで決済URLを作成。
+- ダッシュボードからStripeのAPIキー(公開可能キー、制限付きキー)を作成。
+- Stripe JavaScript SDKをReactアプリに設定。（公開可能キーでJavaScript SDKを初期化）
+- Stripe Node.js SDKをAmplifyのサーバー側アプリに設定
+  - 制限付きキーを暗号化してAWSに保存する。
 
 # 使用技術
 - Node.js v16.13.2
