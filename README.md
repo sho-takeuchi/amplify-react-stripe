@@ -21,7 +21,8 @@ Amplify、React、Stripeで商品購入・定期課金契約機能を実装し�
   - amplify/backend/function/Lambda関数名/src/app.jsでStripeの制限付きキーを取得するコードを記述。
   - 取得したAPIキー(制限付きキー)を元ににStripe Node.js SDKを読み込みセットアップ。
 
--  
+- ## Stripeに登録した商品・料金情報を取得するAPIの作成
+  - Stripe Node.js SDKの命名規則に従い、amplify/backend/function/Lambda関数名/src/app.jsにコードを記述。
 
 
 # 使用技術
