@@ -24,6 +24,12 @@ Amplify、React、Stripeで商品購入・定期課金契約機能を実装し�
 - ## Stripeに登録した商品・料金情報を取得するAPIの作成
   - Stripe Node.js SDKの命名規則に従い、amplify/backend/function/Lambda関数名/src/app.jsにコードを記述。
 
+- ## APIのデータをReactで読み込みブラウザに表示させる。
+  - 非同期処理でAPIを呼び出すため、hook（State、useEffect、useState）を使用。
+  - AmplifyでAPIを追加したので、Amplify SDKを使う(`import { API } from 'aws-amplify';`)
+  - 
+  - 
+
 
 # 使用技術
 - Node.js v16.13.2
