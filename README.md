@@ -1,6 +1,6 @@
 # Amplify-React-Stripeアプリ
 
-ここにhttps化した後にリンクを貼る。
+https://dev.dkpj392iqdwv5.amplifyapp.com
 
 Amplify、React、Stripeで商品購入・定期課金契約機能を実装しました。
 
