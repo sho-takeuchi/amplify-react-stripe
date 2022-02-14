@@ -15,11 +15,11 @@ Amplify、React、Stripeで商品購入・定期課金契約機能を実装し�
     Stripeアカウントにアクセス（顧客情報、決済情報）
 
 - ## Stripe JavaScript SDKをReactアプリに設定。（公開可能キーでJavaScript SDKを初期化）
-  - ### src/BuyButton.jsxにStripeの公開可能キーを取得するコードを記述。
+  - src/BuyButton.jsxにStripeの公開可能キーを取得するコードを記述。
 - ## Stripe Node.js SDKをAmplifyのサーバー側アプリに設定
-  - ### `amplify update function`で制限付きキーを暗号化してAWSに保存。
-  - ### amplify/backend/function/Lambda関数名/src/app.jsでStripeの制限付きキーを取得するコードを記述。
-  - ### 取得したAPIキー(制限付きキー)を元ににStripe Node.js SDKを読み込みセットアップ。
+  - `amplify update function`で制限付きキーを暗号化してAWSに保存。
+  - amplify/backend/function/Lambda関数名/src/app.jsでStripeの制限付きキーを取得するコードを記述。
+  - 取得したAPIキー(制限付きキー)を元ににStripe Node.js SDKを読み込みセットアップ。
 
 -  
 
