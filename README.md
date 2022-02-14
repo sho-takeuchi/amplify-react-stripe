@@ -34,7 +34,7 @@ Amplify、React、Stripeで商品購入・定期課金契約機能を実装し�
   - サーバー側でStripe Checkoutのセッションを作る処理は、stripe.checkout.sessions.create
 
 - ## クライアント側(React)でリダイレクト処理を実装
-  - Checkoutのセッション内容をAPI側で作成しているので、そのセッションのIDをredirectToCheckoutに渡す。
+  - Checkoutのセッション内容をサーバー側で作成しているので、そのセッションのIDをredirectToCheckoutに渡す。
 
 # 使用技術
 - Node.js v16.13.2
