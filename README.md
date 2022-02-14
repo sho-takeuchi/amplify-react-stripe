@@ -27,7 +27,7 @@ Amplify、React、Stripeで商品購入・定期課金契約機能を実装し�
 - ## APIのデータをReactで読み込みブラウザに表示させる。
   - 非同期処理でAPIを呼び出すため、hook（State、useEffect、useState）を使用。
   - AmplifyでAPIを追加したので、Amplify SDKを使う(`import { API } from 'aws-amplify';`)
-  - 上記APIクラスを使うのに必要な情報は、Amplify CLIで指定したAPI名,メソッド(getやpost),APIパスの3種類
+  - 上記APIクラスを使うのに必要な情報は、Amplify CLIで指定したAPI名、メソッド(getやpost)、APIパスの3種類
   - 
 
 
