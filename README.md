@@ -4,7 +4,9 @@
 
 Amplify、React、Stripeで商品購入・定期課金契約機能を実装しました。
 
-- Amplify CLIでREST APIを選択して、AWS Lambda関数を作成(Node.js,テンプレートExpress)。
+# 実装内容
+
+- ### Amplify CLIでREST APIを選択して、AWS Lambda関数を作成(Node.js,テンプレートExpress)。
 - Stripe Payment Linksを使ってノーコードで決済URLを作成。
 - ダッシュボードからStripeのAPIキー(公開可能キー、制限付きキー)を作成。
   - 公開可能キー
