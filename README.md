@@ -30,8 +30,11 @@ Amplify、React、Stripeで商品購入・定期課金契約機能を実装し�
   - 上記APIクラスを使うのに必要な情報は、Amplify CLIで指定したAPI名、メソッド(getやpost)、APIパスの3種類
   - APIレスポンスをブラウザで表示。
 
-- 
+- ## サーバー側(amplify/backend/function/Lambda関数名/src/app.js)にStripe Checkoutのセッションを作成
+  - サーバー側でStripe Checkoutのセッションを作る処理は、stripe.checkout.sessions.create
 
+- ## クライアント側(React)でリダイレクト処理を実装
+  - Checkoutのセッション内容をAPI側で作成しているので、そのセッションのIDをredirectToCheckoutに渡す。
 
 # 使用技術
 - Node.js v16.13.2
