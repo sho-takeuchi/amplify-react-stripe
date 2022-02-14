@@ -37,17 +37,14 @@ Amplify、React、Stripeで商品購入・定期課金契約機能を実装し�
   - Checkoutのセッション内容をサーバー側で作成しているので、そのセッションのIDをredirectToCheckoutに渡す。
 
 # 使用技術
-- Node.js v16.13.2
-- Express 4.16.1
-- Sequelize 　6.15.1
-- PostgreSQL
-- Docker
-- AWS
-    - CDK(TypeScript)
-    - RDS(PostgreSQL) 
-    - ECR
-    - ECS(fargate)
-    
+- Node.js: 16.13.2
+- npm: 8.1.2
+- React: 17.0.2
+- Amplify cli: 6.3.1
+- Stripe JavaScript SDK
+- Stripe Node.js SDK
+- Git: 2.35.1
+
 ## Node.js、Express、Sequelize、PostgreSQLを使う理由
 将来的にこちらのアプリを何らかのデータ保存場所(画像など)に使用することを想定している。
 別のアプリで、AWS Amplify×REST APIを使用するときに、Lambda関数の実行環境を個人的にNode.js→テンプレートをServerless ExpressJS function (Integration with API Gateway)を選択しているため、Node.js(Express)を使用している。
