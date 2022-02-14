@@ -71,8 +71,9 @@ app.post('/shop/products/:price_id/checkout', async function(req, res) {
     })
   }
 
-  const session = await stripe.checkout.sessions.create({
-    mode: price.type === 'recurring' ? 'subscription': 'payment',
+  const mode = price.type === 'recurring' ? 'subscription': 'payment'
+  const param = {
+    mode,
     payment_method_types: ['card'],
     line_items: [{
       price: priceId,
@@ -80,8 +81,21 @@ app.post('/shop/products/:price_id/checkout', async function(req, res) {
     }],
     cancel_url: `${appUrl}/cancel`,
     success_url: `${appUrl}/success`,
-  })
-  
+    billing_address_collection: 'required',
+    shipping_address_collection: {
+        allowed_countries: ['JP']
+    },
+    allow_promotion_codes: true,
+  }
+  if (mode === 'subscription') {
+    param.subscription_data = {
+      trial_period_days: 14
+    }
+  } else {
+    param.submit_type = 'donate'
+  }
+
+  const session = await stripe.checkout.sessions.create(param)
   res.json(session)
 });
 

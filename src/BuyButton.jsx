@@ -1,22 +1,13 @@
 import { Button } from 'reactstrap'
 import {loadStripe} from '@stripe/stripe-js';
+import { API } from 'aws-amplify';
 
 export function BuyButton({price}) {
     const handleClick = async () => {
-        const stripe = await loadStripe(process.env.REACT_APP_API_STRIPE_PUBLISHABLE_API_KEY) //こちらのキーはフロントエンドでしようする公開可能キー(.envに記載)
+        const checkoutSession = await API.post('stripeapi', `/shop/products/${price.id}/checkout`)
+        const stripe = await loadStripe(process.env.REACT_APP_API_STRIPE_PUBLISHABLE_API_KEY) //こちらのキーはフロントエンドで使用する公開可能キー(.envに記載)
         stripe.redirectToCheckout({
-            lineItems: [{ //決済する料金のリスト
-                price: price.id,
-                quantity: 1 //対応する料金は1単位
-            }],
-            mode: price.recurring ? 'subscription' : 'payment',
-            successUrl: `${window.location.origin}?session_id={CHECKOUT_SESSION_ID}`, //決済が完了したときにリダイレクトするページのURL
-            cancelUrl: window.location.origin, //決済せずに戻る場合のURL
-            submitType: 'donate', //決済ボタンの表記をカスタマイズ
-            billingAddressCollection: 'required', //住所入力必須
-            shippingAddressCollection: { //住所を日本に固定
-                allowedCountries: ['JP']
-            }
+            sessionId: checkoutSession.id
         })
     }
     return (
