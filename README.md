@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Amplify-React-Stripeアプリ
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ここにhttps化した後にリンクを貼る。
 
-## Available Scripts
+Amplify、React、Stripeで商品購入・定期課金契約機能を実装しました。
 
-In the project directory, you can run:
+インフラはAWSを使用しています。
+VPC、セキュリティグループ、RDS、ECS(fargate)などのAWSリソースをCDKで構築しました。
 
-### `npm start`
+# 使用技術
+- Node.js v16.13.2
+- Express 4.16.1
+- Sequelize 　6.15.1
+- PostgreSQL
+- Docker
+- AWS
+    - CDK(TypeScript)
+    - RDS(PostgreSQL) 
+    - ECR
+    - ECS(fargate)
+    
+## Node.js、Express、Sequelize、PostgreSQLを使う理由
+将来的にこちらのアプリを何らかのデータ保存場所(画像など)に使用することを想定している。
+別のアプリで、AWS Amplify×REST APIを使用するときに、Lambda関数の実行環境を個人的にNode.js→テンプレートをServerless ExpressJS function (Integration with API Gateway)を選択しているため、Node.js(Express)を使用している。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Docker(代表的なコンテナ技術)を使う理由
+仮想マシン(単一のサーバー上で複数のOSを稼働させる技術)とは違い、コンテナは、サーバーのリソース(CPU、メモリ、ファイルシステム、プロセス空間など)を効率的に使用でき、起動や停止が高速で行えます。そして、1個のコンテナイメージから複数のコンテナを起動できるため、必要な数だけ起動や停止が可能という「スケーラビリティ」にも優れています。また、Docker(同じイメージ)を使えば開発チームの環境を全く同じにできるのもメリットです。
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ECS(fargate)を使う理由
+- ECS(EC2起動タイプ)では、コンテナのためのEC2インスタンスのOSやDockerAgent、ミドルウェアなどの構築や設定操作管理が必要。
+- fargateでは、上記の手間が省ける。
+- インスタンスタイプやクラスター管理が不要になる。
+- 負荷に応じたオートスケール機能をキャパシティの考慮不要で利用できる。
 
-### `npm test`
+## CDKを使う理由
+- 手動でリソースを作成する場合と比べて、環境構築が容易
+- 手動でリソースを作成する場合と比べて、環境構築時の作業漏れ(ヒューマンエラー)が殆ど発生しない。
+- インフラ構成をコード化しているため、使用しているリソースが一目でわかる
+- レビューが容易
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Github Actionsを使う理由(実装予定)
 
-### `npm run build`
+# AWS(インフラ)構成図
+![template1-designer](https://user-images.githubusercontent.com/58723017/153323823-de803e7f-7b88-4fd6-99f5-7b95493e666a.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
