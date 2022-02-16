@@ -5,7 +5,9 @@ https://dev.dkpj392iqdwv5.amplifyapp.com
 Amplify、React、Stripeで商品購入・定期課金契約機能を実装しました。
 
 クライエント側: React
+
 サーバー側: Node.js(Express)
+
 API: (Stripe)
 
 # 実装内容
