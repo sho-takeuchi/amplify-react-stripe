@@ -4,6 +4,10 @@ https://dev.dkpj392iqdwv5.amplifyapp.com
 
 Amplify、React、Stripeで商品購入・定期課金契約機能を実装しました。
 
+クライエント側: React
+サーバー側: Node.js(Express)
+API: (Stripe)
+
 # 実装内容
 
 - ## Amplify CLIでREST APIを選択して、AWS Lambda関数を作成(Node.js,テンプレートExpress)。
